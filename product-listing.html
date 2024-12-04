@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Listing</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="product-listing.html">Products</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section id="filters">
+            <h2>Filters</h2>
+            <select id="main-category" onchange="updateSubCategory()">
+                <option value="all">All</option>
+                <option value="new">New</option>
+                <option value="used">Used</option>
+            </select>
+            <select id="sub-category" onchange="updateSpecificCategory()" disabled>
+                <option value="all">All</option>
+                <option value="boots">Boots</option>
+                <option value="boards">Boards</option>
+            </select>
+            <select id="specific-category" onchange="filterByCategory()" disabled>
+                <option value="all">All</option>
+                <!-- Options will be dynamically added based on the sub-category selection -->
+            </select>
+        </section>
+        <section id="product-list">
+            <h2>All Products</h2>
+            <div id="products"></div>
+        </section>
+    </main>
+    <script src="js/product.js"></script>
+</body>
+</html>

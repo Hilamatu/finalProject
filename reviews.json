@@ -1,0 +1,26 @@
+{
+    "1": [
+        {
+            "text": "Great snowboard, very smooth ride!",
+            "rating": 4
+        }
+    ],
+    "2": [
+        {
+            "text": "Excellent performance, worth the price.",
+            "rating": 5
+        }
+    ],
+    "3": [
+        {
+            "text": "Comfortable but could be warmer.",
+            "rating": 3
+        }
+    ],
+    "4": [
+        {
+            "text": "High-performance boots, very satisfied.",
+            "rating": 4
+        }
+    ]
+}

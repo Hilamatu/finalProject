@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Snowboard X",
+        "description": "High-quality snowboard for all levels.",
+        "price": 299.99,
+        "image": "images/snowboard-x.jpg",
+        "mainCategory": "new",
+        "subCategory": "boards",
+        "boardCategory": "all-mountain",
+        "rating": 4
+    },
+    {
+        "id": 2,
+        "name": "Snowboard Y",
+        "description": "Durable snowboard with excellent performance.",
+        "price": 399.99,
+        "image": "images/snowboard-y.jpg",
+        "mainCategory": "used",
+        "subCategory": "boards",
+        "boardCategory": "freerider",
+        "rating": 5
+    },
+    {
+        "id": 3,
+        "name": "Boots A",
+        "description": "Comfortable and warm boots.",
+        "price": 199.99,
+        "image": "images/boots-a.jpg",
+        "mainCategory": "new",
+        "subCategory": "boots",
+        "size": "medium",
+        "rating": 3
+    },
+    {
+        "id": 4,
+        "name": "Boots B",
+        "description": "High-performance boots for all conditions.",
+        "price": 249.99,
+        "image": "images/boots-b.jpg",
+        "mainCategory": "used",
+        "subCategory": "boots",
+        "size": "large",
+        "rating": 4
+    }
+]
