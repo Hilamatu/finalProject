@@ -118,12 +118,14 @@ function filterByCategory() {
 }
 
 
-function addToCart() {
-    const productId = getProductIdFromURL();
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const product = products.find(p => p.id === productId);
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Product added to cart!');
+function addToCart(productId) {
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            const product = data.find(p => p.id === productId);
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart!');
+        });
 }

@@ -3,19 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function fetchProductListings() {
-    let products = JSON.parse(localStorage.getItem('products')) || [];
-    if (products.length === 0) {
-        fetch('products.json')
-            .then(response => response.json())
-            .then(data => {
-                products = data;
-                localStorage.setItem('products', JSON.stringify(products));
-                displayProducts(products);
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            // Filter products with a rating over 4
+            const highRatedProducts = data.filter(product => product.rating >= 4);
+
+            // Shuffle the filtered products
+            const shuffledProducts = highRatedProducts.sort(() => 0.5 - Math.random());
+
+            // Select the first 7 products
+            const selectedProducts = shuffledProducts.slice(0, 7);
+
+            // Render the selected products
+            displayProducts(selectedProducts);
             });
-    } else {
-        displayProducts(products);
-    }
-}
+        }   
 
 function displayProducts(products) {
     const productList = document.getElementById('product-list');
