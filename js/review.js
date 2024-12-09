@@ -1,3 +1,9 @@
+import { getProductIdFromURL, generateStarRating, updateReviews } from './utils.mjs';
+
+//Expose to global by attaching to window
+window.submitUserReview = submitUserReview;
+window.deleteReview = deleteReview;
+
 document.addEventListener('DOMContentLoaded', () => {
     const productId = getProductIdFromURL();
     fetchProductReviews(productId); // Ensure this function is called on page load
@@ -25,22 +31,6 @@ function submitUserReview(event) {
     updateProductRating(productId, productReviews);
 }
 
-function updateReviews(reviews) {
-    const reviewList = document.getElementById('review-list');
-    reviewList.classList.add('review-list');
-    reviewList.innerHTML = '';
-    reviews.forEach((review, index) => {
-        const reviewItem = document.createElement('div');
-        reviewItem.classList.add('review-item');
-        reviewItem.innerHTML = `
-            <div>${generateStarRating(review.rating)}</div>
-            <p>${review.text}</p>
-            <button onclick="deleteReview(${index})">Delete</button>
-        `;
-        reviewList.appendChild(reviewItem);
-    });
-}
-
 function deleteReview(index) {
     const productId = getProductIdFromURL();
     const reviews = JSON.parse(localStorage.getItem('reviews')) || {};
@@ -64,12 +54,4 @@ function updateProductRating(productId, reviews) {
 
     document.getElementById('product-rating').innerHTML = generateStarRating(averageRating);
     updateHomePageRatings(); // Refresh home page ratings
-}
-
-function generateStarRating(rating) {
-    let stars = '';
-    for (let i = 0; i < 5; i++) {
-        stars += i < rating ? '★' : '☆';
-    }
-    return stars;
 }

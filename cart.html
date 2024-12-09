@@ -16,13 +16,14 @@
         </nav>
     </header>
     <main>
-        <section id="cart-items">
-            <h2>Your Cart</h2>
+        <div id="cart-container">
             <div id="cart-list"></div>
-            <button onclick="proceedToCheckout()">Checkout</button>
+            <p id="total-price">Total Price: $0.00</p>
             <button onclick="clearCart()">Clear Cart</button>
-        </section>
+            <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+        
     </main>
-    <script src="js/cart.js"></script>
+    <script type="module" src="js/cart.js"></script>
 </body>
 </html>

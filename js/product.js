@@ -1,29 +1,20 @@
+import { generateStarRating, getProductIdFromURL, addToCart, fetchJSON } from './utils.mjs';
+
+window.addToCart = addToCart;
+
 document.addEventListener('DOMContentLoaded', () => {
     const productId = getProductIdFromURL();
     fetchProductDetails(productId);
-    fetchProductReviews(productId); // Ensure this function is called on page load
 });
 
-function getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
-}
-
 function fetchProductDetails(productId) {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const product = products.find(p => p.id === productId);
-    document.getElementById('product-image').src = product.image;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-price').textContent = `Price: $${product.price}`;
-    document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
-}
-
-function generateStarRating(rating) {
-    let stars = '';
-    for (let i = 0; i < 5; i++) {
-        stars += i < rating ? '★' : '☆';
-    }
-    return stars;
+    fetchJSON('products.json').then(products => {
+        const product = products.find(p => p.id === productId);
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-price').textContent = `Price: $${product.price}`;
+        document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -64,7 +55,9 @@ function updateSubCategory() {
     subCategory.disabled = mainCategory === 'all';
     subCategory.value = 'all';
     updateSpecificCategory();
+    
 }
+window.updateSubCategory = updateSubCategory;
 
 function updateSpecificCategory() {
     const subCategory = document.getElementById('sub-category').value;
@@ -93,6 +86,8 @@ function updateSpecificCategory() {
     filterByCategory();
 }
 
+window.updateSpecificCategory = updateSpecificCategory;
+
 function filterByCategory() {
     const mainCategory = document.getElementById('main-category').value;
     const subCategory = document.getElementById('sub-category').value;
@@ -116,16 +111,4 @@ function filterByCategory() {
 
     displayProducts(filteredProducts);
 }
-
-
-function addToCart(productId) {
-    fetch('products.json')
-        .then(response => response.json())
-        .then(data => {
-            const product = data.find(p => p.id === productId);
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Product added to cart!');
-        });
-}
+window.filterByCategory = filterByCategory;
