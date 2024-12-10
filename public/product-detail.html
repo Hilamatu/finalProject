@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Detail</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="product-listing.html">Products</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section id="product-detail">
+            <h2 id="product-name">Product Name</h2>
+            <img id="product-image" src="" alt="Product Image">
+            <p id="product-description"></p>
+            <p id="product-price"></p>
+            <div id="product-rating"></div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <section id="reviews">
+                <h3>Reviews</h3>
+                <div id="review-list"></div>
+                <form id="review-form" onsubmit="submitUserReview(event)">
+                    <label for="review-rating">Rating:</label>
+                    <select id="review-rating" required>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+                    <label for="review-text">Review:</label>
+                    <input type="text" id="review-text" placeholder="Write a review" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script type="module" src="js/product.js"></script>
+    <script type="module" src="js/review.js"></script>
+</body>
+</html>
