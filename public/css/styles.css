@@ -18,6 +18,19 @@ nav a {
     text-decoration: none;
 }
 
+#main-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header is above other content */
+    background-color: #fff; /* Optional: Set a background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+body {
+    padding-top: 60px; /* Adjust this value based on your header's height */
+  }
+
 main {
     padding: 1rem;
 }
@@ -157,4 +170,47 @@ select, input {
 
 .review-item button:hover {
     background-color: #FF4500;
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    flex: 1 1 calc(33.333% - 20px); /* Adjust the width as needed */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#pagination-message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    width: 100%;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.page-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.page-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
 }

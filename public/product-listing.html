@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Product Listing</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="product-listing.html">Products</a>
-            <a href="cart.html">Cart</a>
-        </nav>
-    </header>
+    <div id="main-header"></div>
     <main>
         <section id="filters">
             <h2>Filters</h2>
@@ -36,8 +29,12 @@
         <section id="product-list">
             <h2>All Products</h2>
             <div id="products"></div>
+            <div id="pagination-message">Only 10 products are displayed per page.</div>
+            <div id="pagination"></div>
         </section>
     </main>
+    <div id="main-footer"></div>
     <script type="module" src="js/product.js"></script>
+    <script type="module" src="js/loadHeaderFooter.js"></script>
 </body>
 </html>

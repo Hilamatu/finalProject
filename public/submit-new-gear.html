@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Submit New Gear</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="product-listing.html">Products</a>
-            <a href="cart.html">Cart</a>
-        </nav>
-    </header>
+    <div id="main-header"></div>
     <main>
         <form id="add-product-form">
             <h2>Add New Snowboard Gear</h2>
@@ -35,22 +28,27 @@
             
             <label for="main-category">Main Category:</label>
             <select id="main-category" name="mainCategory" required>
+                <option value="" disabled selected hidden>Select</option>
                 <option value="new">New</option>
                 <option value="used">Used</option>
             </select>
             
             <label for="sub-category">Sub Category:</label>
             <select id="sub-category" name="subCategory" required>
+                <option value="" disabled selected hidden>Select</option>
                 <option value="boots">Boots</option>
                 <option value="boards">Boards</option>
             </select>
             
-            <label for="board-category">Board Category:</label>
-            <input type="text" id="board-category" name="boardCategory" required>
-            
+            <label for="board-category">Type/Size:</label>
+            <select id="board-category" name="boardCategory" required>
+                <option value="" disabled selected hidden>Select</option>
+            </select>
             <button type="submit">Add Product</button>
         </form>
     </main>
+    <div id="main-footer"></div>
     <script type="module" src="js/newGear.js"></script>
+    <script type="module" src="js/loadHeaderFooter.js"></script>
 </body>
 </html>

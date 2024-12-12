@@ -275,14 +275,14 @@
     "boardCategory": "Powder"
   },
   {
-    "id": 1733866152785,
-    "name": "Capita DOA",
-    "image": "na`",
-    "description": "All mountain board",
-    "price": 189,
+    "id": 1733993284174,
+    "name": "Nitro Beast",
+    "image": "ba",
+    "description": "All mountain board for jumps",
+    "price": 122,
     "rating": 3,
     "mainCategory": "used",
     "subCategory": "boards",
-    "boardCategory": "all-moutain"
+    "boardCategory": "All mountain"
   }
 ]

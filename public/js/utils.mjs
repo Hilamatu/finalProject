@@ -1,5 +1,3 @@
-// utils.mjs
-
 // Add product to cart
 export function addToCart(productId) {
     fetch('products.json')
@@ -47,4 +45,29 @@ export function updateReviews(reviews, productId) {
 // Fetch JSON file and parse
 export function fetchJSON(filePath) {
     return fetch(filePath).then(response => response.json());
+}
+
+// Load template
+export async function loadTemplate(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to load template: ${url}`);
+    }
+    return await response.text();
+}
+
+// Load header and footer
+export async function loadHeaderFooter() {
+    const headerTemplate = await loadTemplate("../partials/header.html");
+    const headerElement = document.querySelector("#main-header");
+    const footerTemplate = await loadTemplate("../partials/footer.html");
+    const footerElement = document.querySelector("#main-footer");
+
+    renderWithTemplate(headerTemplate, headerElement);
+    renderWithTemplate(footerTemplate, footerElement);
+}
+
+// Render with template
+function renderWithTemplate(template, element) {
+    element.innerHTML = template;
 }
