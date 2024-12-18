@@ -2,20 +2,20 @@ import { generateStarRating, getProductIdFromURL, addToCart, fetchJSON } from '.
 
 window.addToCart = addToCart;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const productId = getProductIdFromURL();
-    fetchProductDetails(productId);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     const productId = getProductIdFromURL();
+//     fetchProductDetails(productId);
+// });
 
-function fetchProductDetails(productId) {
-    fetchJSON('products.json').then(products => {
-        const product = products.find(p => p.id == productId);
-        document.getElementById('product-image').src = product.image;
-        document.getElementById('product-description').textContent = product.description;
-        document.getElementById('product-price').textContent = `Price: $${product.price}`;
-        document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
-    });
-}
+// function fetchProductDetails(productId) {
+//     fetchJSON('products.json').then(products => {
+//         const product = products.find(p => p.id == productId);
+//         document.getElementById('product-image').src = product.image;
+//         document.getElementById('product-description').textContent = product.description;
+//         document.getElementById('product-price').textContent = `Price: $${product.price}`;
+//         document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
+//     });
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchAllProducts();
