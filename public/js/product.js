@@ -47,6 +47,7 @@ function displayProducts(products, page = 1) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.innerHTML = `
+            <img id="product-image" src="${product.image}" alt="Product Image">
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <p>Price: $${product.price}</p>

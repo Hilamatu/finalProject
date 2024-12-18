@@ -19,6 +19,7 @@ function updateCart() {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
+            <img id="product-image" src="${item.image}" alt="Product Image">
             <h3>${item.name}</h3>
             <p>Price: $${item.price}</p>
         `;

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
 </head>
 <body>
     <div id="main-header"></div>
@@ -20,18 +24,23 @@
                 <h3>Reviews</h3>
                 <div id="review-list"></div>
                 <form id="review-form" onsubmit="submitUserReview(event)">
-                    <label for="review-rating">Rating:</label>
-                    <select id="review-rating" required>
-                        <option value="1">1 Star</option>
-                        <option value="2">2 Stars</option>
-                        <option value="3">3 Stars</option>
-                        <option value="4">4 Stars</option>
-                        <option value="5">5 Stars</option>
-                    </select>
-                    <label for="review-text">Review:</label>
-                    <input type="text" id="review-text" placeholder="Write a review" required>
+                    <div class="form-row">
+                        <label for="review-rating">Rating:</label>
+                        <select id="review-rating" required>
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="review-text">Review:</label>
+                        <textarea id="review-text" placeholder="Write a review" required></textarea>
+                    </div>
                     <button type="submit">Submit</button>
                 </form>
+                
             </section>
         </section>
     </main>
