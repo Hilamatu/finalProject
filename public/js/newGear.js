@@ -1,3 +1,7 @@
+import { toggleMenu } from "./utils.mjs";
+
+window.toggleMenu = toggleMenu;
+
 document.getElementById('main-category').addEventListener('change', updateSubCategory);
 document.getElementById('sub-category').addEventListener('change', updateBoardCategory);
 

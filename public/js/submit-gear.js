@@ -1,4 +1,6 @@
-import { saveNewGear } from './utils.mjs';
+import { saveNewGear, toggleMenu } from './utils.mjs';
+
+window.toggleMenu = toggleMenu;
 
 function submitNewGear(event) {
     event.preventDefault();

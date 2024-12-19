@@ -71,3 +71,8 @@ export async function loadHeaderFooter() {
 function renderWithTemplate(template, element) {
     element.innerHTML = template;
 }
+
+export function toggleMenu() {
+    let nav = document.getElementById("mobile-nav");
+    nav.classList.toggle("show");
+    }

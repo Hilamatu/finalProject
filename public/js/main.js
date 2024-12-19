@@ -1,7 +1,8 @@
-import { addToCart, generateStarRating, fetchJSON } from './utils.mjs';
+import { addToCart, generateStarRating, fetchJSON, toggleMenu } from './utils.mjs';
 
 //expose addToCart to the global scope by attaching it to window
 window.addToCart = addToCart;
+window.toggleMenu = toggleMenu;
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchProductListings();

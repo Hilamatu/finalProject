@@ -62,6 +62,9 @@ header nav a:hover {
     color: #00CED1; /* Highlight on hover */
 }
 
+header .hamburger {
+    display: none;
+}
 
 .heroimage {
     position: relative; /* Ensures the message can be positioned over the image */
@@ -121,7 +124,7 @@ input {
     flex-wrap: wrap;
 }
 
-.product-card, .cart-item, .review-item {
+.product-card, .review-item {
     background-color: #F0F8FF; /* Very light blue */
     border: 1px solid #D0E7FF; /* Subtle blue border */
     border-radius: 5px;
@@ -129,6 +132,28 @@ input {
     margin: 0.5rem;
     padding: 1rem;
     flex: 1 1 calc(33.333% - 1rem);
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+    background-color: #F0F8FF; /* Very light blue */
+    border: 1px solid #D0E7FF; /* Subtle blue border */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.cart-item img {
+    max-width: 100px; /* Set a max width for the image */
+    margin-right: 1rem; /* Space between image and text */
+}
+
+.cart-item h3, .cart-item h1, .cart-item h2 {
+    margin: 3;
 }
 
 .carousel {
@@ -299,4 +324,81 @@ main {
 /* If there is a hero image directly below the header */
 .heroimage + main {
     margin-top: 0; /* Remove extra space below header */
+}
+
+@media only screen and (max-width: 800px){
+    header {
+        padding: 0.1rem;
+    }
+
+    header .logo{
+        max-width: 100px; /* Adjust logo size */
+        height: auto;
+
+    }
+
+    header .site-info h1 {
+        font-size: 3rem; /* Smaller font size for mobile */
+    }
+
+    header .site-info .motto {
+        display: none;
+    }
+
+    header .hamburger {
+        display: block;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    header nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav a {
+        font-size: 1rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header nav.show {
+        display: flex;
+    }
+
+    .heroimage {
+        display: none;
+    }
+
+    main {
+        margin-top: 100px;
+    }
+
+    .heroimage + main {
+        margin-top: 100px; /* Remove extra space below header */
+    }
+
+    .product-card, .review-item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .cart-item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .cart-item img {
+        max-width: 100%; /* Full width image */
+        margin-bottom: 1rem; /* Space below image */
+    }
+
+    .carousel-item img {
+        max-height: 150px; /* Smaller max height for mobile */
+    }
+
+    .review-item {
+        width: 100%; /* Full width on mobile */
+    }
 }

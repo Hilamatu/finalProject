@@ -1,21 +1,22 @@
-import { generateStarRating, getProductIdFromURL, addToCart, fetchJSON } from './utils.mjs';
+import { generateStarRating, getProductIdFromURL, addToCart, fetchJSON, toggleMenu } from './utils.mjs';
 
 window.addToCart = addToCart;
+window.toggleMenu = toggleMenu;
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const productId = getProductIdFromURL();
-//     fetchProductDetails(productId);
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    const productId = getProductIdFromURL();
+    fetchProductDetails(productId);
+});
 
-// function fetchProductDetails(productId) {
-//     fetchJSON('products.json').then(products => {
-//         const product = products.find(p => p.id == productId);
-//         document.getElementById('product-image').src = product.image;
-//         document.getElementById('product-description').textContent = product.description;
-//         document.getElementById('product-price').textContent = `Price: $${product.price}`;
-//         document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
-//     });
-// }
+function fetchProductDetails(productId) {
+    fetchJSON('products.json').then(products => {
+        const product = products.find(p => p.id == productId);
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-price').textContent = `Price: $${product.price}`;
+        document.getElementById('product-rating').innerHTML = generateStarRating(product.rating);
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchAllProducts();

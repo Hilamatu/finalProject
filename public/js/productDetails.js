@@ -1,4 +1,6 @@
-import { generateStarRating, getProductIdFromURL, fetchJSON } from './utils.mjs';
+import { generateStarRating, getProductIdFromURL, fetchJSON, toggleMenu } from './utils.mjs';
+
+window.toggleMenu = toggleMenu;
 
 document.addEventListener('DOMContentLoaded', () => {
     const productId = getProductIdFromURL();
