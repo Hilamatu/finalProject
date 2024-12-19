@@ -1,4 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "public" # The folder to deploy static files
-  functions = "netlify/functions" # The folder where your serverless functions live
