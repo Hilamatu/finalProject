@@ -15,12 +15,19 @@ app.post('/add-product', (req, res) => {
             return res.status(500).json({ success: false });
         }
         
-        const products = JSON.parse(data);
+        let products = [];
+        try {
+            products = JSON.parse(data);
+        } catch (parseErr) {
+            console.error('Error parsing products.json:', parseErr);
+            return res.status(500).json({ success: false });
+        }
+
         products.push(newProduct);
         
-        fs.writeFile(path.join(__dirname, 'public', 'products.json'), JSON.stringify(products, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error('Error writing to products.json:', err);
+        fs.writeFile(path.join(__dirname, 'public', 'products.json'), JSON.stringify(products, null, 2), 'utf8', (writeErr) => {
+            if (writeErr) {
+                console.error('Error writing to products.json:', writeErr);
                 return res.status(500).json({ success: false });
             }
             

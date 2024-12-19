@@ -51,7 +51,7 @@ document.getElementById('add-product-form').addEventListener('submit', function(
     
     console.log('New Product:', newProduct); // Debugging log
     
-    fetch('/add-product', {
+    fetch('/.netlify/functions/add-product', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
