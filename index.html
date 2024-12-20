@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+    <script type="module" src="js/loadHeaderFooter.js"></script>
+    <script src="js/weather.js"></script>
 </head>
 <body>
     <div id="main-header"></div>
@@ -17,8 +19,15 @@
         <div class="hero-message">
             <h2>Are you ready to hit the slopes?</h2>
         </div>
-    </div>
-
+        <div class="weathersummary">
+            <h3>Gujo Weather Summary</h3>
+            <p><strong>Currently: </strong><span id="current"></span></p>
+            <p><strong>High: </strong><span id="temp"></span>°F</p>
+            <p><strong>Wind Chill: </strong><span id="windChill"></span></p>
+            <p><strong>Humidity: </strong><span id="humidity"></span>%</p>
+            <p><strong>Wind Speed: </strong><span id="speed"></span> s mph</p>
+        </div>
+    </div> 
     <main>
         <section id="featured-products">
             <h2>Featured Products</h2>
@@ -31,6 +40,5 @@
     </main>
     <div id="main-footer"></div>
     <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/loadHeaderFooter.js"></script>
 </body>
 </html>

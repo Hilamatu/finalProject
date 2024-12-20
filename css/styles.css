@@ -88,6 +88,16 @@ header .hamburger {
     text-align: center; /* Center the text */
 }
 
+.weathersummary {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    color: #E0F7FA;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 5px;
+}
+
 
 main {
     padding: 1rem;
@@ -368,6 +378,10 @@ main {
     }
 
     .heroimage {
+        display: none;
+    }
+
+    .weathersummary {
         display: none;
     }
 

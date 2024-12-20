@@ -1,11 +1,12 @@
 import { addToCart, generateStarRating, fetchJSON, toggleMenu } from './utils.mjs';
 
-//expose addToCart to the global scope by attaching it to window
+// Expose addToCart to the global scope by attaching it to window
 window.addToCart = addToCart;
 window.toggleMenu = toggleMenu;
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchProductListings();
+    fetchWeather();
 });
 
 function fetchProductListings() {
@@ -36,7 +37,6 @@ function displayProducts(products) {
         carouselInner.appendChild(productCard);
     });
 }
-
 
 function initializeCarousel() {
     const carousel = document.querySelector('.carousel-inner');
@@ -74,8 +74,20 @@ function initializeCarousel() {
     updateCarousel();
 }
 
+function fetchWeather() {
+    const apiKey = 'YOUR_API_KEY'; // Replace with your API key
+    const city = 'Tokyo'; // Replace with your desired city
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-
-function updateHomePageRatings() {
-    fetchProductListings();
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const weatherContainer = document.getElementById('weather-container');
+            weatherContainer.innerHTML = `
+                <h3>Weather in ${data.name}</h3>
+                <p>Temperature: ${data.main.temp}°C</p>
+                <p>Condition: ${data.weather[0].description}</p>
+            `;
+        })
+        .catch(error => console.error('Error fetching weather data:', error));
 }

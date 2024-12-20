@@ -50,25 +50,39 @@ document.getElementById('add-product-form').addEventListener('submit', function(
     };
     
     console.log('New Product:', newProduct); // Debugging log
+
+    // Save to local storage
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    products.push(newProduct);
+    localStorage.setItem('products', JSON.stringify(products));
+
+    // Display the product list
+    displayProducts();
     
-    fetch('/.netlify/functions/add-product', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newProduct)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product added successfully!');
-            // Clear the form
-            document.getElementById('add-product-form').reset();
-        } else {
-            alert('Failed to add product.');
-        }
-    })
-    .catch(error => {
-        console.error('Error adding product:', error);
-    });
+    // Clear the form
+    document.getElementById('add-product-form').reset();
 });
+
+function displayProducts() {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Clear previous list
+
+    products.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.innerHTML = `
+            <h3>${product.name}</h3>
+            <img src="${product.image}" alt="${product.name}" />
+            <p>${product.description}</p>
+            <p>Price: $${product.price}</p>
+            <p>Rating: ${product.rating}</p>
+            <p>Main Category: ${product.mainCategory}</p>
+            <p>Sub Category: ${product.subCategory}</p>
+            <p>Board Category: ${product.boardCategory}</p>
+        `;
+        productList.appendChild(productItem);
+    });
+}
+
+// Initial display of products
+displayProducts();
